@@ -11,6 +11,7 @@ cv2.imshow('Demo test', img)
 
 # distory image
 cv2.waitKey(0)
-cv2.destoryAllWindows()
+cv2.destroyAllWindows()
+
 
 # https://blog.gtwang.org/programming/opencv-basic-image-read-and-write-tutorial/
