@@ -1,17 +1,23 @@
-import numpy as np
 import cv2
+import os
 
-# read image
-img = cv2.imread('./paper/00015-Yolov3tiny_output.bmp', cv2.IMREAD_COLOR)
-print(type(img))
-print(img.shape)
+image_folder = './paper/'
 
-# display image
-cv2.imshow('Demo test', img)
+image_files = sorted([os.path.join(image_folder, img) for img in os.listdir(image_folder) if img.endswith(".bmp")])
 
-# distory image
-cv2.waitKey(0)
+print(len(image_files))
+
+cv2.namedWindow("Image Stream", cv2.WINDOW_NORMAL)
+cv2.resizeWindow("Image Stream", 416, 416)
+
+for image_file in image_files:
+    frame = cv2.imread(image_file)
+
+    if frame is not None:
+        cv2.imshow("Image Stream", frame)
+        cv2.waitKey(100)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
 cv2.destroyAllWindows()
-
-
-# https://blog.gtwang.org/programming/opencv-basic-image-read-and-write-tutorial/
