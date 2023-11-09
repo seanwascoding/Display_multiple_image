@@ -1,7 +1,7 @@
 import cv2
 import os
 
-image_folder = './paper/'
+image_folder = './result/'
 
 image_files = sorted([os.path.join(image_folder, img) for img in os.listdir(image_folder) if img.endswith(".bmp")])
 
