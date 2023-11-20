@@ -1,5 +1,4 @@
 import cv2
-import os
 import sys
 import time
 from watchdog.observers import Observer
@@ -35,7 +34,6 @@ class ImageHandler(FileSystemEventHandler):
     def getImage(self):
         return self.image
         
-
 def start():
     print('start')
     path = sys.argv[1]
